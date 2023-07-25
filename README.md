@@ -86,16 +86,21 @@ sudo docker build -t ulpcs .
 To see the prototype in action, you can run the simple test files for any of the four implemented constructions as follows:
 
 **Original PCS**
+
 Single test:
 ```
 sudo docker run ulpcs python3 /app/PCS/test.py n
 ```
+where n is the number of attributes and must be an integer, e.g. 5.
+
 Full test*:
 ```
 sudo docker run ulpcs python3 /app/PCS/full_benchmark.py #begin $end #jump #iterations
 ```
+Where begin represents the minimum number of attributes and end represents the maximum number of attributes. The jump variable specifies the jump in number of attributes, and iterations is the average of the selected iteration value. In the paper, we reported the following setting: begin=5 to end=50, jump=5 and iteration=100.
 
 **Generic ul-PCS**
+
 Single Test:
 
 ```
@@ -108,6 +113,7 @@ sudo docker run ulpcs python3 /app/Generic/full_benchmark.py #begin $end #jump #
 ```
 
 **RBAC ul-PCS**
+
 Single Test:
 
 ```
@@ -120,6 +126,7 @@ sudo docker run ulpcs python3 /app/RBAC/full_benchmark.py #begin $end #jump #ite
 ```
 
 **ul-PCS with Seperable Policies**
+
 Single Test:
 
 ```
