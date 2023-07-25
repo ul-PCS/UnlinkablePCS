@@ -78,7 +78,7 @@ cd UnlinkablePCS/
 The dependencies and compatibility requirements on various existing libraries to run the prototype are quite involved. We recommend to use Docker to obtain a consistent execution environment (though the runtimes might be slower compared to a direct execution). Install Docker and then run the following command to build the docker container:
 
 ```
-sudo docker build -t ulpcs .
+docker build -t ulpcs .
 ```
 
 ### Testing the Prototype:
@@ -89,13 +89,13 @@ To see the prototype in action, you can run the simple test files for any of the
 
 Single test:
 ```
-sudo docker run ulpcs python3 /app/PCS/test.py n
+docker run ulpcs python3 /app/PCS/test.py n
 ```
 where n is the number of attributes and must be an integer, e.g. 5.
 
 Full test*:
 ```
-sudo docker run ulpcs python3 /app/PCS/full_benchmark.py #begin $end #jump #iterations
+docker run ulpcs python3 /app/PCS/full_benchmark.py #begin $end #jump #iterations
 ```
 Where begin represents the minimum number of attributes and end represents the maximum number of attributes. The jump variable specifies the jump in number of attributes, and iterations is the average of the selected iteration value. In the paper, we reported the following setting: begin=5 to end=50, jump=5 and iteration=100.
 
@@ -104,12 +104,12 @@ Where begin represents the minimum number of attributes and end represents the m
 Single Test:
 
 ```
-sudo docker run ulpcs python3 /app/Generic/test.py n
+docker run ulpcs python3 /app/Generic/test.py n
 ```
 Full Test*:
 
 ```
-sudo docker run ulpcs python3 /app/Generic/full_benchmark.py #begin $end #jump #iterations
+docker run ulpcs python3 /app/Generic/full_benchmark.py #begin $end #jump #iterations
 ```
 
 **RBAC ul-PCS**
@@ -117,12 +117,12 @@ sudo docker run ulpcs python3 /app/Generic/full_benchmark.py #begin $end #jump #
 Single Test:
 
 ```
-sudo docker run ulpcs python3 /app/RBAC/test.py n
+docker run ulpcs python3 /app/RBAC/test.py n
 ```
 Full Test*:
 
 ```
-sudo docker run ulpcs python3 /app/RBAC/full_benchmark.py #begin $end #jump #iterations
+docker run ulpcs python3 /app/RBAC/full_benchmark.py #begin $end #jump #iterations
 ```
 
 **ul-PCS with Seperable Policies**
@@ -130,20 +130,20 @@ sudo docker run ulpcs python3 /app/RBAC/full_benchmark.py #begin $end #jump #ite
 Single Test:
 
 ```
-sudo docker run ulpcs python3 /app/SP/test.py n
+docker run ulpcs python3 /app/SP/test.py n
 ```
 Full test*:
 ```
-sudo docker run ulpcs python3 /app/SP/full_benchmark.py #begin $end #jump #iterations
+docker run ulpcs python3 /app/SP/full_benchmark.py #begin $end #jump #iterations
 ```
 
 *Once any full test is run, the xlsx-file with the statistics can be retrieved. For example, first find the container ID via:
 
 ```
-sudo docker ps -a
+docker ps -a
 ```
 Then copy the respective xlsx-file to the local machine, for example:
 
 ```
-sudo docker cp #Container_ID:/Generic.xlsx .
+docker cp #Container_ID:/Generic.xlsx .
 ```
